@@ -1,0 +1,121 @@
+.projects {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #007bff;
+  opacity: 0; 
+  transform: translateY(-20px); 
+  transition: opacity 1s ease-out, transform 1s ease-out; 
+}
+
+.projects-title.animate {
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+.projects-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0; 
+  transform: translateY(-20px); 
+  transition: opacity 1s ease-out, transform 1s ease-out; 
+}
+
+.projects-items.animate {
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+.projects-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%; 
+  max-width: 1000px; 
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.projects-image {
+  flex: 0 0 50%; 
+  height: 100%;
+  background-color: #f1f1f1;
+}
+
+.projects-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projects-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.projects-content h3 {
+  margin-top: 0;
+  font-family: 'Merriweather', serif;
+  font-size: 1.75rem; 
+  color: #333;
+}
+
+.projects-content p {
+  font-size: 1.125rem; 
+  font-family: 'Merriweather', serif;
+  color: #666;
+  margin: 10px 0;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; 
+  margin: 10px 0;
+}
+
+.tech-tag {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 8px 15px; 
+  border-radius: 5px;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem; 
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); 
+}
+
+.projects-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 8px 15px; 
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem; 
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+.projects-link:hover {
+  background-color: #0056b3;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+}

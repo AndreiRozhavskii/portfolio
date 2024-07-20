@@ -1,0 +1,49 @@
+:root {
+  --icon-color-light: #333; 
+  --icon-color-dark: #fff;  
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.sidebar.nav-light {
+  --icon-color: var(--icon-color-light);
+}
+
+.sidebar.nav-dark {
+  --icon-color: var(--icon-color-dark);
+}
+
+.sidebar .icon {
+  color: var(--icon-color);
+  font-size: 2.5em; 
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: inherit; 
+  text-decoration: none;
+}
+
+.sidebar nav ul li a:hover {
+  color: #007bff; 
+}
