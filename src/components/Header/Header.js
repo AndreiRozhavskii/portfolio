@@ -1,44 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Header.css';
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 
 const Header = () => {
-  const [text, setText] = useState("Hi! I'm Andrei and welcome to My Portfolio.");
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const phrases = [
+    "Hi! I'm Andrei and welcome to My Portfolio.",
+    "Passionate about web development.",
+    "Specializing in React and Node.js.",
+    "Creating modern and responsive applications.",
+    "Focused on clean and efficient code.",
+    "Skilled in problem-solving and troubleshooting.",
+    "Committed to delivering robust and secure applications."
+  ];
+
+  const phrasesRef = useRef([]);
 
   useEffect(() => {
-    const phrases = [
-      "Passionate about web development.",
-      "Specializing in React and Node.js.",
-      "Creating modern and responsive applications.",
-      "Focused on clean and efficient code.",
-      "Skilled in problem-solving and troubleshooting.",
-      "Committed to delivering robust and secure applications."
-    ];
-
-    const createAnimatedText = (text) => {
-      return text.split('').map((letter, i) => (
-        `<span class="matrix-letter" style="--i:${i}">${letter === ' ' ? '&nbsp;' : letter}</span>`
-      )).join('');
-    };
-
-    const setTextContent = (text) => {
-      const headerContent = document.querySelector('.header-content');
-      headerContent.innerHTML = createAnimatedText(text);
-    };
-
-    setTextContent(text); 
-
     const interval = setInterval(() => {
-      setCurrentPhraseIndex(prevIndex => {
-        const nextIndex = (prevIndex + 1) % phrases.length;
-        setTextContent(phrases[nextIndex]);
-        return nextIndex;
-      });
+      setCurrentPhraseIndex(prevIndex => (prevIndex + 1) % phrases.length);
     }, 5000); 
 
     return () => clearInterval(interval);
-  }, [text]);
+  }, [phrases.length]); 
+
+  useEffect(() => {
+    const elements = phrasesRef.current;
+    elements.forEach((element, index) => {
+      element.style.opacity = index === currentPhraseIndex ? '1' : '0';
+      element.style.transform = index === currentPhraseIndex ? 'translateY(0)' : 'translateY(20px)';
+    });
+  }, [currentPhraseIndex]);
 
   return (
     <header className="header">
@@ -56,10 +48,24 @@ const Header = () => {
         </a>
       </nav>
       <div id="overlay"></div>
-      <div className="header-content"></div>
+      <div className="header-content">
+        <div className="main-phrase">
+          {phrases[0]} 
+        </div>
+        <div className="additional-phrases">
+          {phrases.slice(1).map((phrase, index) => (
+            <span
+              key={index}
+              ref={(el) => (phrasesRef.current[index] = el)}
+              className="additional-phrase"
+            >
+              {phrase}
+            </span>
+          ))}
+        </div>
+      </div>
     </header>
   );
 };
 
 export default Header;
-

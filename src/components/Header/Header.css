@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url('./raise.png'); 
@@ -82,25 +82,14 @@
   z-index: 2;
 }
 
-.matrix-letter {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(-100px);
-  animation: fall 3s forwards;
-}
-
-@keyframes fall {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.main-phrase {
+  margin-bottom: 20px;
 }
 
 .additional-phrases {
   position: relative;
   top: 150px; 
-  z-index: 2;
-  text-align: center; 
+  text-align: center;
 }
 
 .additional-phrase {
@@ -108,26 +97,7 @@
   color: white;
   opacity: 0;
   transform: translateY(20px); 
-  animation: fadeInOut 6s ease-in-out infinite;
-  display: block; 
-  margin: 10px 0; 
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(20px); 
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(0); 
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(0); 
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px); 
-  }
+  transition: opacity 1s ease, transform 1s ease;
+  display: block;
+  margin: 10px 0;
 }
