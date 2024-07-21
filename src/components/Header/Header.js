@@ -43,7 +43,7 @@ const Header = () => {
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
         </div>
-        <a href="https://drive.google.com/file/d/1qwYI3yuzQUnM4Bnr2RtS2DC0QYwDM2qf/view?usp=drive_link" className="cv-button" download>
+        <a href="https://docs.google.com/document/d/1Zh9iboraf6QNBfbGH4ygV6VlJ00D4_edsvqiBBaDrsQ/edit?usp=drive_link" download>
           Download CV
         </a>
       </nav>
